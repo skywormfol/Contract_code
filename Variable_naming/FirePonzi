@@ -1,4 +1,5 @@
 //https://etherscan.io/address/0x062524205ca7ecf27f4a851edec93c7ad72f427b#code
+//https://www.reddit.com/r/ethereum/comments/4e5y30/live_example_of_underhanded_solidity_coding_on/?st=j5oooioz&sh=85b9ee32
 
 contract FirePonzi {
    // NO FEE PONZI, 1.15 Multiplier, Limited to 3 Ether deposits, FAST and designed to be on FIRE !
