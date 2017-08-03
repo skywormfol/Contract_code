@@ -1,0 +1,6 @@
+At some point during the development of the contract, its name was changed from
+DynamicPyramid into Rubixi. However, programmers forgot to accordingly
+change the name of the constructor, which then became a function invokable by
+anyone (instead, constructors are run only once when the contract is created).
+The DynamicPyramid function sets the owner address; the owner can withdraw
+his profit via collectAllFees.
