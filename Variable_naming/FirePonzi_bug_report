@@ -1,0 +1,22 @@
+https://www.reddit.com/r/ethereum/comments/4e5y30/live_example_of_underhanded_solidity_coding_on/?st=j5oooioz&sh=85b9ee32
+
+Notice that there are in fact two very similar variables in the code, uint public payoutCursor_Id_ and uint public payoutCursor_Id. The first one gets incremented, but the line of code that actually makes the payouts goes to the second one, which gets initialized at zero and hence stays at zero. Hence, the ponzi is not actually "fair": the deposits of every single "investor" actually all go to the 0th participant (ie. probably an alt account of the person who created the scheme) and everyone else gets nothing.
+
+
+...
+Player[] public persons;
+
+uint public payoutCursor_Id_ = 0;
+uint public balance = 0;
+
+address public owner;
+
+uint public payoutCursor_Id=0;
+...
+while (balance > persons[payoutCursor_Id_].deposit / 100 * 115) {
+  uint MultipliedPayout = persons[payoutCursor_Id_].deposit / 100 * 115;
+  persons[payoutCursor_Id].etherAddress.send(MultipliedPayout);
+
+  balance -= MultipliedPayout;
+  payoutCursor_Id_++;
+}
