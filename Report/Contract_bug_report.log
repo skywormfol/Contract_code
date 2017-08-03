@@ -1,0 +1,453 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.1)  3 AUG 2017 11:05
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Contract_bug_report.tex
+(./Contract_bug_report.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
+(./llncs.cls
+Document Class: llncs 2004/08/17 v2.14 
+ LaTeX document class for Lecture Notes in Computer Science
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
+\c@tracingmulticols=\count87
+\mult@box=\box26
+\multicol@leftmargin=\dimen103
+\c@unbalance=\count88
+\c@collectmore=\count89
+\doublecol@number=\count90
+\multicoltolerance=\count91
+\multicolpretolerance=\count92
+\full@width=\dimen104
+\page@free=\dimen105
+\premulticols=\dimen106
+\postmulticols=\dimen107
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\maxbalancingoverflow=\dimen108
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count93
+\c@finalcolumnbadness=\count94
+\last@try=\dimen109
+\multicolovershoot=\dimen110
+\multicolundershoot=\dimen111
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\mc@col@check@num=\count95
+)
+\c@chapter=\count96
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 360.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 361.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 362.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 363.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 364.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 365.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 366.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 367.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 368.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 369.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 370.
+\tocchpnum=\dimen112
+\tocsecnum=\dimen113
+\tocsectotal=\dimen114
+\tocsubsecnum=\dimen115
+\tocsubsectotal=\dimen116
+\tocsubsubsecnum=\dimen117
+\tocsubsubsectotal=\dimen118
+\tocparanum=\dimen119
+\tocparatotal=\dimen120
+\tocsubparanum=\dimen121
+\@tempcntc=\count97
+\fnindent=\dimen122
+\c@@inst=\count98
+\c@@auth=\count99
+\c@auco=\count100
+\instindent=\dimen123
+\authrun=\box52
+\authorrunning=\toks14
+\tocauthor=\toks15
+\titrun=\box53
+\titlerunning=\toks16
+\toctitle=\toks17
+\c@theorem=\count101
+\c@case=\count102
+\c@conjecture=\count103
+\c@corollary=\count104
+\c@definition=\count105
+\c@example=\count106
+\c@exercise=\count107
+\c@lemma=\count108
+\c@note=\count109
+\c@problem=\count110
+\c@property=\count111
+\c@proposition=\count112
+\c@question=\count113
+\c@solution=\count114
+\c@remark=\count115
+\headlineindent=\dimen124
+)
+(./Contract_bug_report.aux)
+\openout1 = `Contract_bug_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 9.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (38.40959pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 function donate(address to){credit[to] += msg.value;}[] 
+ []
+
+
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 function queryCredit(address to) returns (uint){[] 
+ []
+
+
+Overfull \hbox (127.66069pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 //attackerAddress is the attacker's address, should be su
+bstituted when test.[] 
+ []
+
+
+Overfull \hbox (27.2532pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 SimpleDAO public dao = SimpleDAO(attackerAddress);[] 
+ []
+
+
+Overfull \hbox (8.65923pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 function MalloryAttack(){owner = msg.sender;}[] 
+ []
+
+
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 function(){dao.withdraw(dao.queryCredit(this));}[] 
+ []
+
+
+Overfull \hbox (64.44116pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 //recursion here when call withdraw without credit decrea
+se.[] 
+ []
+
+
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 83--83
+[]    \OT1/cmtt/m/n/7 function getJackpot(){owner.send(this balance);}[] 
+ []
+
+
+Overfull \hbox (12.37802pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 //****************attack here***************//[] 
+ []
+
+
+Overfull \hbox (30.972pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 function changeOwner(address _new_owner) external {[] 
+ []
+
+
+Overfull \hbox (79.31635pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 function withdraw(uint amount) external returns (bool suc
+cess) {[] 
+ []
+
+Missing character: There is no ‚ in font cmtt8!
+Missing character: There is no Ä in font cmtt8!
+Missing character: There is no ú in font cmtt8!
+Missing character: There is no ‚ in font cmtt8!
+Missing character: There is no Ä in font cmtt8!
+Missing character: There is no ù in font cmtt8!
+
+Overfull \hbox (135.09828pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 // replace the following line with _walletLibrary = n
+ew ToyWalletLibrary();[] 
+ []
+
+
+Overfull \hbox (64.44116pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 // if you want to try to exploit this contract in Rem
+ix.[] 
+ []
+
+
+Overfull \hbox (79.31635pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 _walletLibrary = <address of pre-deployed ToyWalletLi
+brary>;[] 
+ []
+
+
+Overfull \hbox (127.66069pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 _walletLibrary.delegatecall(bytes4(sha3("initWallet(a
+ddress)")), _owner);[] 
+ []
+
+
+Overfull \hbox (45.84718pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 function withdraw(uint amount) returns (bool success) {[]
+ 
+ []
+
+
+Overfull \hbox (135.09828pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 return _walletLibrary.delegatecall(bytes4(sha3("withd
+raw(uint)")), amount);[] 
+ []
+
+
+Overfull \hbox (86.75394pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 // fallback function gets called if no other function mat
+ches call[] 
+ []
+
+Missing character: There is no ‚ in font cmtt8!
+Missing character: There is no Ä in font cmtt8!
+Missing character: There is no ú in font cmtt8!
+Missing character: There is no ‚ in font cmtt8!
+Missing character: There is no Ä in font cmtt8!
+Missing character: There is no ù in font cmtt8!
+
+Overfull \hbox (120.2231pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 // replace the following line with _walletLibrary = new T
+oyWalletLibrary();[] 
+ []
+
+
+Overfull \hbox (8.65923pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/7 wallet = <address of pre-deployed ToyWallet>;[] 
+ []
+
+
+Overfull \hbox (64.44116pt too wide) in paragraph at lines 147--147
+[]        \OT1/cmtt/m/n/7 wallet.initWallet(this.address,"anynumber","anynumber
+");[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 186--186
+[]        \OT1/cmtt/m/n/7 uint compensation = calculateCompensation();[] 
+ []
+
+
+Overfull \hbox (343.35085pt too wide) in paragraph at lines 186--186
+[]        \OT1/cmtt/m/n/7 //if the recipient is not a normal address, but a con
+tract needing status updated, the send may fail because of the 2300 gas limit.[
+] 
+ []
+
+[3]
+Overfull \hbox (16.09682pt too wide) in paragraph at lines 208--208
+[]\OT1/cmtt/m/n/7 contract Alice{ function ping(uint) returns (uint)}[] 
+ []
+
+
+Overfull \hbox (402.85158pt too wide) in paragraph at lines 208--208
+[]\OT1/cmtt/m/n/7 //the following direct invoke will return x=0, if there is an
+ exception in function ping. All the gas allocated by the originating transacti
+on is consumed.[] 
+ []
+
+
+Overfull \hbox (97.91032pt too wide) in paragraph at lines 208--208
+[]\OT1/cmtt/m/n/7 contract Bob{ function x=0; function pong(Alice c){x=1; c.pin
+g(42); x=2;}[] 
+ []
+
+
+Overfull \hbox (406.57037pt too wide) in paragraph at lines 208--208
+[]\OT1/cmtt/m/n/7 //the following call will return x=2, if there is an exceptio
+n in function ping. The call just returns false, and the gas allocated by the c
+all is consumed.[] 
+ []
+
+
+Overfull \hbox (120.2231pt too wide) in paragraph at lines 208--208
+[]\OT1/cmtt/m/n/7 contract John{ function x=0; function pong(Alice c){x=1; c.ca
+ll.ping(42); x=2;}[] 
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[4]
+Overfull \hbox (8.65923pt too wide) in paragraph at lines 267--267
+[]    \OT1/cmtt/m/n/7 function OddsAndEvens(){ owner = msg.sender;}[] 
+ []
+
+
+Overfull \hbox (12.37802pt too wide) in paragraph at lines 267--267
+[]        \OT1/cmtt/m/n/7 players[tot] = Player(msg.sender, number);[] 
+ []
+
+
+Overfull \hbox (257.81854pt too wide) in paragraph at lines 267--267
+[]    \OT1/cmtt/m/n/7 //the adversary infers the first player's bet by inspecti
+ng the blockchain transaction where he joined the game.[] 
+ []
+
+
+Overfull \hbox (27.2532pt too wide) in paragraph at lines 267--267
+[]        \OT1/cmtt/m/n/7 uint n = player[0].number + players[1].number;[] 
+ []
+
+
+Overfull \hbox (384.2576pt too wide) in paragraph at lines 291--291
+[]\OT1/cmtt/m/n/7 //the name is changed from DynamicPyramid to Rubixi, but the 
+name of constructor is omitted,so users would invoke DynamicPyramid to withdraw
+ the fees.[] 
+ []
+
+
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 291--291
+[]    \OT1/cmtt/m/n/7 function DynamicPyramid(){ owner = msg.sender; }[] 
+ []
+
+
+Overfull \hbox (38.40959pt too wide) in paragraph at lines 291--291
+[]    \OT1/cmtt/m/n/7 function collectAllFees(){owner.send(collectedFees);}[] 
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[5]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no à in font cmr10!
+Missing character: There is no º in font cmr10!
+
+Overfull \hbox (12.37802pt too wide) in paragraph at lines 349--349
+[]        \OT1/cmtt/m/n/7 lastInvestmentTimestamp = block.timestamp;[] 
+ []
+
+
+Overfull \hbox (131.37949pt too wide) in paragraph at lines 349--349
+[]    \OT1/cmtt/m/n/7 //this timestamp dependance may be attacked by the player
+ who is also a miner.[] 
+ []
+
+
+Overfull \hbox (131.37949pt too wide) in paragraph at lines 349--349
+[]    \OT1/cmtt/m/n/7 //also the miner can manipulate which transaction to be i
+ncluded in the block.[] 
+ []
+
+
+Overfull \hbox (97.91032pt too wide) in paragraph at lines 349--349
+[]        \OT1/cmtt/m/n/7 if(block.timestamp < lastInvestmentTimestamp + ONE_MI
+NUTE) throw;[] 
+ []
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Overfull \hbox (224.34938pt too wide) in paragraph at lines 383--383
+[]    \OT1/cmtt/m/n/7 // 2.the owner update the price later but may be mined fi
+rst which leads a failure trade for the buyer.[] 
+ []
+
+
+Overfull \hbox (176.00504pt too wide) in paragraph at lines 383--383
+[]    \OT1/cmtt/m/n/7 // 1.the buyer order the stock first according to the pri
+ce he see but may be mined later.[] 
+ []
+
+
+Overfull \hbox (53.28477pt too wide) in paragraph at lines 383--383
+[]        \OT1/cmtt/m/n/7 if(msg.value < quant * price || quant > stock) throw;
+[] 
+ []
+
+[6]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ [7] (./Contract_bug_report.aux) ) 
+Here is how much of TeX's memory you used:
+ 616 strings out of 494910
+ 6923 string characters out of 6179837
+ 72694 words of memory out of 5000000
+ 3980 multiletter control sequences out of 15000+600000
+ 5933 words of font info for 22 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 29i,6n,21p,575b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on Contract_bug_report.pdf (7 pages, 113466 bytes).
+PDF statistics:
+ 60 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
