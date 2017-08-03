@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.1)  3 AUG 2017 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.1)  3 AUG 2017 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -280,86 +280,70 @@ Overfull \hbox (64.44116pt too wide) in paragraph at lines 147--147
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Overfull \hbox (19.81561pt too wide) in paragraph at lines 186--186
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 187--187
 []        \OT1/cmtt/m/n/7 uint compensation = calculateCompensation();[] 
  []
 
 
-Overfull \hbox (343.35085pt too wide) in paragraph at lines 186--186
+Overfull \hbox (101.62912pt too wide) in paragraph at lines 187--187
 []        \OT1/cmtt/m/n/7 //if the recipient is not a normal address, but a con
-tract needing status updated, the send may fail because of the 2300 gas limit.[
-] 
+tract needing[] 
+ []
+
+
+Overfull \hbox (94.19153pt too wide) in paragraph at lines 187--187
+[]        \OT1/cmtt/m/n/7 status updated, the send may fail because of the 2300
+ gas limit.[] 
  []
 
 [3]
-Overfull \hbox (16.09682pt too wide) in paragraph at lines 208--208
-[]\OT1/cmtt/m/n/7 contract Alice{ function ping(uint) returns (uint)}[] 
- []
-
-
-Overfull \hbox (402.85158pt too wide) in paragraph at lines 208--208
-[]\OT1/cmtt/m/n/7 //the following direct invoke will return x=0, if there is an
- exception in function ping. All the gas allocated by the originating transacti
-on is consumed.[] 
- []
-
-
-Overfull \hbox (97.91032pt too wide) in paragraph at lines 208--208
-[]\OT1/cmtt/m/n/7 contract Bob{ function x=0; function pong(Alice c){x=1; c.pin
-g(42); x=2;}[] 
- []
-
-
-Overfull \hbox (406.57037pt too wide) in paragraph at lines 208--208
-[]\OT1/cmtt/m/n/7 //the following call will return x=2, if there is an exceptio
-n in function ping. The call just returns false, and the gas allocated by the c
-all is consumed.[] 
- []
-
-
-Overfull \hbox (120.2231pt too wide) in paragraph at lines 208--208
-[]\OT1/cmtt/m/n/7 contract John{ function x=0; function pong(Alice c){x=1; c.ca
-ll.ping(42); x=2;}[] 
+Overfull \hbox (190.56177pt too wide) in paragraph at lines 200--214
+[]$[]$ 
  []
 
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 [4]
-Overfull \hbox (8.65923pt too wide) in paragraph at lines 267--267
+Overfull \hbox (8.65923pt too wide) in paragraph at lines 272--272
 []    \OT1/cmtt/m/n/7 function OddsAndEvens(){ owner = msg.sender;}[] 
  []
 
 
-Overfull \hbox (12.37802pt too wide) in paragraph at lines 267--267
+Overfull \hbox (12.37802pt too wide) in paragraph at lines 272--272
 []        \OT1/cmtt/m/n/7 players[tot] = Player(msg.sender, number);[] 
  []
 
 
-Overfull \hbox (257.81854pt too wide) in paragraph at lines 267--267
+Overfull \hbox (116.5043pt too wide) in paragraph at lines 272--272
 []    \OT1/cmtt/m/n/7 //the adversary infers the first player's bet by inspecti
-ng the blockchain transaction where he joined the game.[] 
+ng the blockchain[] 
  []
 
 
-Overfull \hbox (27.2532pt too wide) in paragraph at lines 267--267
+Overfull \hbox (27.2532pt too wide) in paragraph at lines 272--272
 []        \OT1/cmtt/m/n/7 uint n = player[0].number + players[1].number;[] 
  []
 
 
-Overfull \hbox (384.2576pt too wide) in paragraph at lines 291--291
+Overfull \hbox (135.09828pt too wide) in paragraph at lines 297--297
 []\OT1/cmtt/m/n/7 //the name is changed from DynamicPyramid to Rubixi, but the 
-name of constructor is omitted,so users would invoke DynamicPyramid to withdraw
- the fees.[] 
+name of constructor is[] 
  []
 
 
-Overfull \hbox (19.81561pt too wide) in paragraph at lines 291--291
+Overfull \hbox (75.59755pt too wide) in paragraph at lines 297--297
+[] \OT1/cmtt/m/n/7 omitted,so users would invoke DynamicPyramid to withdraw the
+ fees.[] 
+ []
+
+
+Overfull \hbox (19.81561pt too wide) in paragraph at lines 297--297
 []    \OT1/cmtt/m/n/7 function DynamicPyramid(){ owner = msg.sender; }[] 
  []
 
 
-Overfull \hbox (38.40959pt too wide) in paragraph at lines 291--291
+Overfull \hbox (38.40959pt too wide) in paragraph at lines 297--297
 []    \OT1/cmtt/m/n/7 function collectAllFees(){owner.send(collectedFees);}[] 
  []
 
@@ -380,24 +364,24 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-Overfull \hbox (12.37802pt too wide) in paragraph at lines 349--349
+Overfull \hbox (12.37802pt too wide) in paragraph at lines 355--355
 []        \OT1/cmtt/m/n/7 lastInvestmentTimestamp = block.timestamp;[] 
  []
 
 
-Overfull \hbox (131.37949pt too wide) in paragraph at lines 349--349
+Overfull \hbox (131.37949pt too wide) in paragraph at lines 355--355
 []    \OT1/cmtt/m/n/7 //this timestamp dependance may be attacked by the player
  who is also a miner.[] 
  []
 
 
-Overfull \hbox (131.37949pt too wide) in paragraph at lines 349--349
+Overfull \hbox (131.37949pt too wide) in paragraph at lines 355--355
 []    \OT1/cmtt/m/n/7 //also the miner can manipulate which transaction to be i
 ncluded in the block.[] 
  []
 
 
-Overfull \hbox (97.91032pt too wide) in paragraph at lines 349--349
+Overfull \hbox (97.91032pt too wide) in paragraph at lines 355--355
 []        \OT1/cmtt/m/n/7 if(block.timestamp < lastInvestmentTimestamp + ONE_MI
 NUTE) throw;[] 
  []
@@ -406,19 +390,19 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-Overfull \hbox (224.34938pt too wide) in paragraph at lines 383--383
+Overfull \hbox (116.5043pt too wide) in paragraph at lines 391--391
 []    \OT1/cmtt/m/n/7 // 2.the owner update the price later but may be mined fi
-rst which leads a failure trade for the buyer.[] 
+rst which leads a[] 
  []
 
 
-Overfull \hbox (176.00504pt too wide) in paragraph at lines 383--383
+Overfull \hbox (127.66069pt too wide) in paragraph at lines 391--391
 []    \OT1/cmtt/m/n/7 // 1.the buyer order the stock first according to the pri
-ce he see but may be mined later.[] 
+ce he see but may be[] 
  []
 
 
-Overfull \hbox (53.28477pt too wide) in paragraph at lines 383--383
+Overfull \hbox (53.28477pt too wide) in paragraph at lines 391--391
 []        \OT1/cmtt/m/n/7 if(msg.value < quant * price || quant > stock) throw;
 [] 
  []
@@ -444,7 +428,7 @@ mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on Contract_bug_report.pdf (7 pages, 113466 bytes).
+Output written on Contract_bug_report.pdf (7 pages, 113502 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

@@ -178,7 +178,8 @@ If the callee of a send (the Ethereum function to transfer ether) is a contract 
 	    function(){
 	        if(msg.value < claimPrice) throw;
 	        uint compensation = calculateCompensation();
-	        //if the recipient is not a normal address, but a contract needing status updated, the send may fail because of the 2300 gas limit. 
+	        //if the recipient is not a normal address, but a contract needing 
+	        status updated, the send may fail because of the 2300 gas limit. 
 	        king.send(compensation);
 	        king = msg.sender;
 	        claimPrice = calculateNewprice();
@@ -196,13 +197,16 @@ If the callee of a send (the Ethereum function to transfer ether) is a contract 
 This refers to unchecked send errors or called contracts that throw exceptions. The effect is that the calling contract transaction is entirely reverted and all gas is lost. There are 2 different behaviours, which depend on how contracts call each others, directly invoke or via call.
 \item \textbf{Example:}
 
-	\begin{minipage}{.5\textwidth} 
+	\begin{minipage}{1.5\textwidth} 
 	{\scriptsize
 	\begin{verbatim}
 	contract Alice{ function ping(uint) returns (uint)}
-	//the following direct invoke will return x=0, if there is an exception in function ping. All the gas allocated by the originating transaction is consumed.
+	//the following direct invoke will return x=0, if there is an exception 
+	in function ping. All the gas allocated by the originating transaction 
+	is consumed.
 	contract Bob{ function x=0; function pong(Alice c){x=1; c.ping(42); x=2;}
-	//the following call will return x=2, if there is an exception in function ping. The call just returns false, and the gas allocated by the call is consumed.
+	//the following call will return x=2, if there is an exception in function ping. 
+	The call just returns false, and the gas allocated by the call is consumed.
 	contract John{ function x=0; function pong(Alice c){x=1; c.call.ping(42); x=2;}
 
 	\end{verbatim} }
@@ -252,7 +256,8 @@ By the public nature of the blockchain, contract fields marked private are not g
 	        tot++;
 	        if(tot == 2) andTheWinnerIs();
 	    }
-	    //the adversary infers the first player's bet by inspecting the blockchain transaction where he joined the game.
+	    //the adversary infers the first player's bet by inspecting the blockchain
+	     transaction where he joined the game.
 	    function andTheWinnerIs() private{
 	        uint n = player[0].number + players[1].number;
 	        players[n%2].addr.send(1800 finney);
@@ -281,7 +286,8 @@ When a contract is added to the blockchain, there is no way to edit it. If a con
 	{\scriptsize
 	\begin{verbatim}
 	
-	//the name is changed from DynamicPyramid to Rubixi, but the name of constructor is omitted,so users would invoke DynamicPyramid to withdraw the fees.
+	//the name is changed from DynamicPyramid to Rubixi, but the name of constructor is
+	 omitted,so users would invoke DynamicPyramid to withdraw the fees.
 	contract Rubixi{
 	    address private owner;
 	    function DynamicPyramid(){ owner = msg.sender; }
@@ -369,12 +375,14 @@ This occurs when the assumed state of the blockchain is not the blockchain’s a
 	    uint public price;
 	    uint public stock;
 	    /.../
-	    // 2.the owner update the price later but may be mined first which leads a failure trade for the buyer.
+	    // 2.the owner update the price later but may be mined first which leads a
+	     failure trade for the buyer.
 	    function updatePrice(uint _price){
 	        if(msg.sender == owner)
 	            price = _price;
 	    }
-	    // 1.the buyer order the stock first according to the price he see but may be mined later.  
+	    // 1.the buyer order the stock first according to the price he see but may be
+	     mined later.  
 	    function buy(uint quant) returns (uint){
 	        if(msg.value < quant * price || quant > stock) throw;
 	        stock -= quant;
