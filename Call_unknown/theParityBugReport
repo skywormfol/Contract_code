@@ -1,0 +1,7 @@
+attack code line 435
+
+Call the unknown fallback function
+
+            _walletLibrary.delegatecall(msg.data);
+
+to initWallet, and be the owner of wallet.
