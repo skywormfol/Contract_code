@@ -1,3 +1,147 @@
 Refer to the DAO code
 //http://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/
 
+And so it goes:
+
+    Propose a split and wait until the voting period expires. (DAO.sol, createProposal)
+    Execute the split. (DAO.sol, splitDAO)
+    Let the DAO send your new DAO its share of tokens. (splitDAO -> TokenCreation.sol, createTokenProxy)
+    Make sure the DAO tries to send you a reward before it updates your balance but after doing (3). (splitDAO -> withdrawRewardFor -> ManagedAccount.sol, payOut)
+    While the DAO is doing (4), have it run splitDAO again with the same parameters as in (2) (payOut -> _recipient.call.value -> _recipient())
+    The DAO will now send you more child tokens, and go to withdraw your reward before updating your balance. (DAO.sol, splitDAO)
+    Back to (5)!
+    Let the DAO update your balance. Because (7) goes back to (5), it never actually will :-).
+
+(Side note: Ethereum's gas mechanics don't save us here. call.value passes on all the gas a transaction is working with by default, unlike the send function. so the code will run as long as the attacker will pay for it, which considering it's a cheap exploit means indefinitely)
+
+Armed with this, we can provide a step by step re-trace of how The DAO got emptied out.
+Step 1: Proposing the Split
+
+The first step towards all of the above is to simply propose a regular split, as we've mentioned.
+
+The attacker does this in the blockchain here in DAO Proposal #59, with the title "Lonely, so Lonely".
+
+Because of this line:
+
+// The minimum debate period that a split proposal can have
+uint constant minSplitDebatePeriod = 1 weeks;
+
+he had to wait a week for the proposal to see approval. No matter, it's just a split proposal like any other! Nobody will look too closely at it, right?
+Step 2: Getting the Reward
+
+As was neatly explained in one of slock.it's previous posts on the matter, there are no rewards for the DAO to give out yet! (because no rewards were generated).
+
+As we mentioned in the overview, the critical lines that need to run here are:
+
+function withdrawRewardFor(address _account) noEther internal returns (bool _success) {
+  if ((balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply < paidOut[_account]) // XXXXX
+    throw;
+
+  uint reward =
+    (balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply - paidOut[_account];
+  if (!rewardAccount.payOut(_account, reward)) // XXXXX
+    throw;
+  paidOut[_account] += reward;
+  return true;
+}
+
+If the hacker could get the first marked line to run, the second marked line will run the default function of his choosing (that calls back to splitDAO as we described previously).
+
+Let's deconstruct the first if statement:
+
+if ((balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply < paidOut[_account])
+
+The balanceOf function is defined in Token.sol, and of course does exactly this:
+
+return balances[_owner];
+
+The rewardAccount.accumulatedInput() line is evaluated from code in ManagedAccount.sol:
+
+// The sum of ether (in wei) which has been sent to this contract
+uint public accumulatedInput;
+
+Luckily accumulatedInput is oh so simple to manipulate. Just use the default function of the reward account!
+
+function() {
+    accumulatedInput += msg.value;
+}
+
+Not only that, but because there is no logic to decrease accumulatedInput anywhere (it tracks the input the account has gotten from all the transactions ever), all the attacker needs to do is send a few Wei to the reward account and our original condition will not only evaluate to false, but its constituent values will evaluate to the same thing every time it's called:
+
+if ((balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply < paidOut[_account])
+
+Remember that because balanceOf refers to balances, which never gets updated, and because paidOut and totalSupply also never get updated since that code in splitDAO never actually executes, the attacker gets to claim their tiny share of the reward with no problems. And because they can claim their share of the reward, they can run their default function and reenter back to splitDAO. Whoopsie.
+
+But do they actually need to include a reward? Let's look at the line again:
+
+if ((balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply < paidOut[_account])
+
+What if the reward account balance is 0? Then we get
+
+if (0 < paidOut[_account])
+
+If nothing has ever been paid out, this will always evaluate to false and never throw! Why? The original line is equivalent, after subtracting paidOut from both sides, to:
+
+if ((balanceOf(_account) * rewardAccount.accumulatedInput()) / totalSupply - paidOut[_account] < 0)
+
+where that first part is actually how much is being paid out. So the check is actually:
+
+if (amountToBePaid < 0)
+
+But if amountToBePaid is 0, the DAO pays you anyway. To me this doesn't make much sense -- why waste the gas in this manner? I think this is why many people assumed the attacker needed a balance in the reward account to proceed with the attack, something they in fact did not require. The attack works the same way with an empty reward account as with a full one!
+
+Let's take a look at the DAO's reward address. The DAO accounting documentation from Slockit pegs this address as 0xd2e16a20dd7b1ae54fb0312209784478d069c7b0. Check that account's transactions and you see a pattern: 200 pages of .00000002 ETH transactions to 0xf835a0247b0063c04ef22006ebe57c5f11977cc4 and 0xc0ee9db1a9e07ca63e4ff0d5fb6f86bf68d47b89, the attacker's two malicious contracts (which we cover later). That's one transaction for each recursive call of withdrawRewardFor, which we described above. So in this case there actually was a balance in the rewards account, and the attacker gets to collect some dust.
+Step 3: The Big Short
+
+A number of entirely unsubstantiated allegations on social media have pointed to a $3M Ethereum short that occurred on Bitfinex just moments before the attack, claiming this short closed with almost $1M USD of profit.
+
+It's obvious to anyone constructing or analyzing this attack that certain properties of the DAO (specifically that any split must be running the same code as the original DAO) require an attacker to wait through the creation period of their child DAO (27 days) before withdrawing any coins in a malicious split. This gives the community time to respond to a theft, through either a soft fork freezing attacker funds or a hard fork rolling back the compromise entirely.
+
+Any financially motivated attacker who had attempted their exploit on the testnet would have an incentive to ensure profits regardless of a potential rollback or fork by shorting the underlying token. The staggering drop that resulted within minutes of the smart contract that triggered the malicious split provided an excellent profit opportunity, and while there is no proof the attacker took the profit opportunity, we can at least conclude that after all this effort they would have been stupid not to.
+Step 3a: Preventing Exit (Resistance is Futile)
+
+Another contingency that the attacker needed to think of is the case that a DAO split occurs before the attacker can finish emptying the DAO. In this case, with another user as sole curator, the attacker would have no access to DAO funds.
+
+Unfortunately the attacker is a smart guy: there is evidence that the attacker has voted yes on all split proposals that come to term after his own, making sure that he would hold some tokens in the case of any DAO split. Because of a property of the DAO we'll discuss later in the post, these split DAOs are vulnerable to the same emptying attack we're describing here. All the attacker has to do is sit through the creation period, send some Ether to the reward account, and propose and execute a split by himself away from this new DAO. If he can execute before the curator of this new DAO updates the code to remove the vulnerability, he manages to squash all attempts to get Ether out of the DAO that aren't his own.
+
+Notice by the timestamps here that the attacker did this right around the time he started the malicious split, almost as an afterthought. I see this more as an unnecessary middle finger to the DAO than a financially viable attack: having already emptied virtually the entire DAO, going through this effort to pick up any pennies that might be left on the table is probably an attempt to demoralize holders into inaction. Many have concluded, and I agree, that this hints at the attacker's motivations being a complete destruction of the DAO that goes beyond profit taking. While none of us know the truth here, I do recommend applying your own judgment.
+
+Interestingly enough, this attack was described by Emin Gün Sirer after it had already occurred on the blockchain, but before the public had noticed.
+Step 4: Executing the Split
+
+So we've painstakingly described all the boring technical aspects of this attack. Let's get to the fun part, the action: executing the malicious split. The account that executed the transactions behind the split is 0xf35e2cc8e6523d683ed44870f5b7cc785051a77d.
+
+The child DAO they sent funds to is 0x304a554a310c7e546dfe434669c62820b7d83490. The proposal was created and initiated by account 0xb656b2a9c3b2416437a811e07466ca712f5a5b5a (you can see the call to createProposal in the blockchain history there).
+
+Deconstructing the constructor arguments that created that child DAO leads us to a curator at 0xda4a4626d3e16e094de3225a751aab7128e96526. That smart contract is just a regular multisignature wallet, with most of its past transactions being adding/removing owners and other wallet management tasks. Nothing interesting there.
+
+Johannes Pfeffer on Medium has an excellent blockchain-based reconstruction of the transactions involved in the malicious Child DAO. I won't spend too much time on such blockchain analysis, since he's already done a great job. I highly encourage anyone interested to start with that article.
+
+In the next article in the series, we'll look at the code from the malicious contract itself (containing the exploit that actually launched the recursive attack). In the interest of expedience of release, we have not yet completed such an analysis.
+Step 4a: Extending the Split
+
+This step is an update to the original update, and covers how the attacker was able to turn a ~30X amplification attack (due to the max size of Ethereum's stack being capped at 128) to a virtually infinite draining account.
+
+Savvy readers of the above may notice that, even after overwhelming the stack and executing many more malicious splits than was required, the hacker would have their balance zeroed out by the code at the end of splitDAO:
+
+function splitDAO(
+  ....
+  withdrawRewardFor(msg.sender); // be nice, and get his rewards
+  totalSupply -= balances[msg.sender];
+  balances[msg.sender] = 0;
+  paidOut[msg.sender] = 0;
+  return true;
+}
+
+So how did the attacker get around this? Thanks to the ability to transfer DAO tokens, he didn't really need to! All he had to do was call the DAO's helpful transfer function at the top of his stack, from his malicious function:
+
+function transfer(address _to, uint256 _amount) noEther returns (bool success) {
+  if (balances[msg.sender] >= _amount && _amount > 0) {
+    balances[msg.sender] -= _amount;
+    balances[_to] += _amount;
+    ...
+
+By transferring the tokens to a proxy account, the original account would be zeroed out correctly at the end of splitDAO (notice how if A transfers all its money to B, A's account is already zeroed out by transfer before it can be zeroed out by splitDAO). The attacker can then send the money back from the proxy account to the original account and start the whole process again. Even the update to totalSupply in splitDAO is missed, since p.totalSupply[0] is used to calculate the payout, which is a property of the original proposal and only instantiated once before the attack occurs. So the attack size stays constant despite less available ETH in the DAO with every iteration.
+
+The evidence of two malicious contracts calling into withdrawRewardFor on the blockchain suggests that the attacker's proxy account was also an attack-enabled contract that simply alternated as the attacker with the original contract. This optimization saves the attacker one transaction per attack cycle, but otherwise appears unnecessary.
+
