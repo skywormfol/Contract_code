@@ -1,0 +1,26 @@
+The KoET contract does not check the result of the com-
+pensation transaction in Line 15 before assigning the new
+king. Thus, if for some reason, the compensation transaction
+does not finish properly, the current king loses his throne
+without any compensation. In fact, an instance of such a
+problem occurred and led to the termination of KoET [12].
+The reason reported in [12] is that the address A k of the cur-
+rent king is not a normal address, but a contract address.
+When sending a transaction (or call) to A k , some code will
+be executed, thus requiring more gas than a transaction to
+a normal address. However, KoET does not know what A k
+executes internally beforehand to decide how much gas to
+give in the send instruction. Hence A k runs out of gas and
+throws an exception. As a result, the state (and balance)
+of A k remains unchanged, the compensation is returned to
+KoET and the current king loses his throne without any
+compensation.
+
+Mishandled exceptions. Detecting a mishandled exception
+is straightforward. Recall that if a callee yields an excep-
+tion, it pushes 0 to the caller’s operand stack. Thus we
+only need to check if the contract executes the ISZERO
+instruction (which checks if the top value of the stack is
+0) after every call. If it does not, any exception occurred
+in the callee is ignored. Thus, we flags such contract as a
+contract that mishandles exceptions.

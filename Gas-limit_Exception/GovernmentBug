@@ -1,0 +1,17 @@
+https://www.reddit.com/r/ethereum/comments/4ghzhv/governmentals_1100_eth_jackpot_payout_is_stuck/?st=j5oyee9q&sh=53c766b2
+
+The timer on the jackpot ran out and the lucky winner can now claim it. However, as part of paying out the jackpot, the contract clears internal storage with these instructions:
+
+creditorAddresses = new address[](0);
+creditorAmounts = new uint[](0);
+
+This compiles to code which iterates over the storage locations and deletes them one by one. The list of creditors is so long, that this would require a gas amount of 5057945, but the current maximum gas amount for a transaction is only 4712388.
+
+Mishandled exceptions. Detecting a mishandled exception
+is straightforward. Recall that if a callee yields an excep-
+tion, it pushes 0 to the caller’s operand stack. Thus we
+only need to check if the contract executes the ISZERO
+instruction (which checks if the top value of the stack is
+0) after every call. If it does not, any exception occurred
+in the callee is ignored. Thus, we flags such contract as a
+contract that mishandles exceptions.
