@@ -1,0 +1,17 @@
+Allowing contracts to access to the block timestamp is
+essentially a redundant feature that renders contracts vul-
+nerable to manipulation by adversaries. Typically, block
+timestamp is used for two purposes: serving as a deter-
+ministic random seed (e.g., in theRun contract) and as a
+global timestamp in a distributed network (in [25, 26, 28]).
+Using block timestamp as a random seed is not wise since
+the entropy is low and the timestamp is easy to manipu-
+late.
+
+Timestamp dependence detection. We use a special sym-
+bolic variable to represent the block timestamp. Note that
+the block timestamp stays constant during the execution.
+Thus, given a path condition of a trace, we check if this
+symbolic variable is included. A contract is flagged as
+timestamp-dependent if any of its traces depends on this
+symbolic variable.
