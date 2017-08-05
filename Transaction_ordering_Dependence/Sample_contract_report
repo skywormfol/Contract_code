@@ -1,0 +1,11 @@
+This occurs when the assumed state of the blockchain is not the blockchains
+actual state when a transaction is executed. The order in which transactions
+are mined can have adverse effects on the execution of any given transac-
+tion. This bug is said to be present in up to %15.8 of all contracts on the
+blockchain.
+
+TOD detection. Explorer returns a set of traces and the
+corresponding Ether flow for each trace. Our analysis thus
+checks if two different traces have different Ether flows. If
+a contract has such pairs of traces, Oyente reports it as
+a TOD contract.
