@@ -1,5 +1,15 @@
 # Contract_code
 
+Source1: 
+Jun.19th 2016 Vitalik Buterin blog.  https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security/
+
+Source2: 
+Apr.22th 2017 A survey of attacks on Ethereum smart contracts https://eprint.iacr.org/2016/1007.pdf
+
+Source3:
+2017 DappGuard : Active Monitoring and Defense for Solidity Smart Contracts https://courses.csail.mit.edu/6.857/2017/project/23.pdf
+
+
 Contract_Bug_vulnerabilities_classification:
 
 Call_unknown(solidity level) contains:
@@ -23,11 +33,4 @@ Variable_naming(solidity level) contains:
 1. Rubixi contract and bug analysis.
 2. FirePonzi contract and bug analysis.
 
-Source1: 
-Jun.19th 2016 Vitalik Buterin blog.  https://blog.ethereum.org/2016/06/19/thinking-smart-contract-security/
 
-Source2: 
-Apr.22th 2017 A survey of attacks on Ethereum smart contracts https://eprint.iacr.org/2016/1007.pdf
-
-Source3:
-2017 DappGuard : Active Monitoring and Defense for Solidity Smart Contracts https://courses.csail.mit.edu/6.857/2017/project/23.pdf
