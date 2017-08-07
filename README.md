@@ -10,7 +10,7 @@ Source3:
 2017 DappGuard : Active Monitoring and Defense for Solidity Smart Contracts https://courses.csail.mit.edu/6.857/2017/project/23.pdf
 
 
-** Contract_Bug_vulnerabilities_classification: **
+Contract_Bug_vulnerabilities_classification: 
 
 Call_unknown(solidity level) contains:
 1. The newest Parity attack contract and the bug analysis.
