@@ -27,19 +27,19 @@ In this section, we list all the vulnerabilities indentified so far, and then gi
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{Level}	&\textbf{Cause of vulnerability}	&\textbf{Attacks}\\	\hline
-Solidity	&Call to the unknown		&1		\\	\hline
-\			&Gassless send				&2		\\	\hline
-\			&Exception disorders		&3		\\	\hline
-\			&Type casts					&2		\\	\hline
-\			&Reentrancy					&2		\\	\hline
-\			&Keeping secrets			&2		\\	\hline
-EVM			&Immutable bugs				&2		\\	\hline
-\			&Ether lost in transfer		&2		\\	\hline
-\			&Stack size limit			&2		\\	\hline
-Blockchain	&Transaction Ordering Dependence(TOD)	&2	\\	\hline
-\			&Generating randomness		&2		\\	\hline
-\			&Time constraints			&2		\\	\hline
+\textbf{Level}	&\textbf{Cause of vulnerability}	&\textbf{Identify by Oyente}\\	\hline
+Solidity	&Call to the unknown		&Reentrancy(DAOParityWalletAttack)		\\	\hline
+\			&Gassless send				&MishandledExceptons(KoET)		\\	\hline
+\			&Exception disorders		&MishandledExceptons(KoET)		\\	\hline
+\			&Type casts					&MishandledExceptons(No examples)		\\	\hline
+\			&Reentrancy					&Reentrancy(DAO)		\\	\hline
+\			&Keeping secrets			&(All examples)		\\	\hline
+EVM			&Immutable bugs				&(All examples)		\\	\hline
+\			&Ether lost in transfer		&(No examples)		\\	\hline
+\			&Stack size limit			&MishandledExceptons(Governmental)		\\	\hline
+Blockchain	&Transaction Ordering Dependence	&TOD(MarketPlace)	\\	\hline
+\			&Generating randomness		&TimeStamp(No hacked examples)		\\	\hline
+\			&Time constraints			&TimeStamp(No hacked examples)		\\	\hline
 
 \end{tabular}
 \end{center}
@@ -179,7 +179,9 @@ If the callee of a send (the Ethereum function to transfer ether) is a contract 
 	        if(msg.value < claimPrice) throw;
 	        uint compensation = calculateCompensation();
 	        //if the recipient is not a normal address, but a contract needing 
-	        status updated, the send may fail because of the 2300 gas limit. 
+	        status updated, the send may fail because of the 2300 gas limit, so that contract
+	        doesn't get the compensation, the ether will be left in the KotET contract. there
+	        should be some check after send to make sure the send is successful.  
 	        king.send(compensation);
 	        king = msg.sender;
 	        claimPrice = calculateNewprice();
@@ -415,6 +417,7 @@ Some Dapps use timestamps to generate random numbers. However, the clock in Ethe
 
 
 \section{Verification with Symbolic Exection}
+
 
 
 \end{document}
