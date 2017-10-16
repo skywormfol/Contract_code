@@ -450,18 +450,4 @@ contract Wallet is multisig {
         return _walletLibrary.delegatecall(msg.data);
     }
 
-    // FIELDS
-    address constant _walletLibrary = 0x4f2875f631f4fc66b8e051defba0c9f9106d7d5a;
-
-    // the number of owners that must confirm the same operation before it is run.
-    uint public m_required;
-    // pointer used to find a free slot in m_owners
-    uint public m_numOwners;
-
-    uint public m_dailyLimit;
-    uint public m_spentToday;
-    uint public m_lastDay;
-
-    // list of owners
-    uint[256] m_owners;
 }
